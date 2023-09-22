@@ -15,7 +15,7 @@ def on_click(event):
 def on_release(event):
     global end_x, end_y
     end_x, end_y = event.x, event.y
-    canvas.create_rectangle(start_x, start_y, end_x, end_y, outline='red', width=2)
+    canvas.create_rectangle(start_x, start_y, end_x, end_y, outline='red', width=5)
     root.quit()
 
 # Créez une fenêtre Tkinter
@@ -23,7 +23,7 @@ root = tk.Tk()
 root.title("Définir une région")
 
 # Créez un canevas pour l'interaction
-canvas = tk.Canvas(root, bg='white', width=800, height=600)
+canvas = tk.Canvas(root, bg='white', width=1920, height=1080)
 canvas.pack()
 
 # Attachez des gestionnaires d'événements pour capturer les clics de souris
@@ -32,14 +32,16 @@ canvas.bind("<ButtonRelease-1>", on_release)
 
 # Affichez la fenêtre Tkinter
 root.mainloop()
-
 # Une fois que la fenêtre est fermée, vous pouvez utiliser les coordonnées start_x, start_y, end_x, end_y
 print(f"Coordonnées du coin supérieur gauche : ({start_x}, {start_y})")
 print(f"Coordonnées du coin inférieur droit : ({end_x}, {end_y})")
 
+# Calculez la largeur et la hauteur du rectangle
+largeur = end_x - start_x
+hauteur = end_y - start_y
+
 # Définissez la région de l'écran où vous souhaitez effectuer la recherche
-left, top, width, height = 100, 100, 800, 600  # Exemple de coordonnées et de dimensions de la région
-region = (left, top, width, height)
+region = (start_x, start_y, largeur, hauteur)
 
 # Effectuez la recherche d'image dans la région spécifiée avec un niveau de confiance
 #image_position = pyautogui.locateOnScreen('C:/Users/Abric/Documents/BotPaysan/ble.png', region=region, confidence=0.9)
