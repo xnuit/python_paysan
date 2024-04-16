@@ -44,7 +44,7 @@ hauteur = end_y - start_y
 region = (start_x, start_y, largeur, hauteur)
 
 # Effectuez la recherche d'image dans la région spécifiée avec un niveau de confiance
-#image_position = pyautogui.locateOnScreen('C:/Users/Abric/Documents/BotPaysan/ble.png', region=region, confidence=0.9)
+#image_position = pyautogui.locateOnScreen('C:/Users/User/Documents/BotPaysan/ble.png', region=region, confidence=0.9)
 
 #if image_position:
     # Si l'image est trouvée dans la région spécifiée, effectuez des actions sur elle
